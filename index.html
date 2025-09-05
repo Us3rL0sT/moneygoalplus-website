@@ -5,23 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoneyGoal+ - Smart Financial Planning Made Simple</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        :root {
-            --primary: #8B5CF6;
-            --primary-dark: #7C3AED;
-            --primary-light: #A78BFA;
-            --secondary: #EC4899;
-            --accent: #10B981;
-            --background: #0F0F23;
-            --surface: #1E1B4B;
-            --surface-light: #2D1B69;
-            --text: #F8FAFC;
-            --text-muted: #CBD5E1;
-            --glass: rgba(139, 92, 246, 0.1);
-            --glass-border: rgba(139, 92, 246, 0.2);
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -29,28 +12,17 @@
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--background);
-            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .gradient-bg {
-            background: radial-gradient(ellipse at top, rgba(139, 92, 246, 0.3) 0%, rgba(15, 15, 35, 0.9) 50%),
-                        radial-gradient(ellipse at bottom, rgba(236, 72, 153, 0.2) 0%, transparent 50%);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            min-height: 100vh;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
         
         /* Header */
@@ -58,154 +30,141 @@
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 100;
-            backdrop-filter: blur(20px);
-            background: rgba(15, 15, 35, 0.8);
-            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(118, 75, 162, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
         }
         
-        .nav-menu {
+        .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
         }
         
         .nav-link {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
-            position: relative;
         }
         
         .nav-link:hover {
-            color: var(--primary-light);
+            color: #fff;
         }
         
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .cta-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
+        .get-started-btn {
+            background: #fff;
+            color: #764ba2;
             padding: 12px 24px;
-            border-radius: 50px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
         }
         
-        .cta-btn:hover {
+        .get-started-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
         
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 120px 0 80px;
+            text-align: center;
             position: relative;
-            padding: 120px 0 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
         
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
-        .hero-text h1 {
-            font-size: clamp(48px, 6vw, 84px);
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 72px);
             font-weight: 800;
-            line-height: 1.1;
             margin-bottom: 24px;
-            background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-light) 50%, var(--secondary) 100%);
+            background: linear-gradient(135deg, #fff 0%, #f0f9ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .hero-text p {
-            font-size: 20px;
-            color: var(--text-muted);
+        .hero p {
+            font-size: 24px;
             margin-bottom: 40px;
-            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-buttons {
             display: flex;
             gap: 20px;
+            justify-content: center;
             margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3);
-            border: none;
-            cursor: pointer;
+            background: #fff;
+            color: #764ba2;
         }
         
         .btn-secondary {
-            background: var(--glass);
-            color: var(--text);
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
         }
         
-        .btn-primary:hover, .btn-secondary:hover {
+        .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
         
         .stats {
             display: flex;
-            gap: 40px;
-            margin-top: 40px;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 80px;
+            flex-wrap: wrap;
         }
         
         .stat {
@@ -213,61 +172,41 @@
         }
         
         .stat-number {
-            font-size: 32px;
+            font-size: 42px;
             font-weight: 800;
-            color: var(--primary-light);
             display: block;
+            margin-bottom: 8px;
         }
         
         .stat-label {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 4px;
+            font-size: 16px;
+            opacity: 0.8;
         }
         
         /* Phone Mockup */
+        .phone-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
         .phone-mockup {
+            display: inline-block;
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .phone-container {
-            width: 320px;
-            height: 640px;
-            background: linear-gradient(145deg, #1a1a2e, #16213e);
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: 
-                0 50px 100px rgba(0, 0, 0, 0.5),
-                inset 0 2px 0 rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .phone-container::before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 6px;
-            background: #333;
-            border-radius: 3px;
+            background: linear-gradient(145deg, #2a2a3e, #1a1a2e);
+            padding: 30px;
+            border-radius: 50px;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
+            max-width: 350px;
+            margin: 0 auto;
         }
         
         .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 30px;
-            position: relative;
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            border-radius: 35px;
+            padding: 40px 20px;
+            color: #fff;
+            height: 600px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            padding: 60px 20px 20px;
         }
         
         .app-header {
@@ -276,22 +215,22 @@
         }
         
         .app-title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             margin-bottom: 8px;
         }
         
         .app-subtitle {
             opacity: 0.8;
-            font-size: 14px;
+            font-size: 16px;
         }
         
         .goal-card {
             background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            text-align: left;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
@@ -299,7 +238,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
         
         .goal-icon {
@@ -312,9 +251,9 @@
         }
         
         .goal-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         
         .progress-bar {
@@ -322,90 +261,42 @@
             background: rgba(255, 255, 255, 0.2);
             border-radius: 4px;
             overflow: hidden;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         
         .progress-fill {
             height: 100%;
-            background: var(--accent);
+            background: #10B981;
             border-radius: 4px;
-            transition: width 1s ease;
         }
         
         .progress-text {
-            font-size: 12px;
+            font-size: 14px;
             opacity: 0.8;
-        }
-        
-        /* Floating Elements */
-        .floating-cards {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        
-        .floating-card {
-            position: absolute;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 20px;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .floating-card:nth-child(1) {
-            top: 20%;
-            right: -5%;
-            animation-delay: 0s;
-        }
-        
-        .floating-card:nth-child(2) {
-            bottom: 30%;
-            left: -5%;
-            animation-delay: 2s;
-        }
-        
-        .floating-card:nth-child(3) {
-            top: 60%;
-            right: 15%;
-            animation-delay: 4s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
         }
         
         /* Features Section */
         .features {
-            padding: 120px 0;
-            position: relative;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
         
         .section-title {
-            font-size: clamp(36px, 5vw, 56px);
+            text-align: center;
+            font-size: 48px;
             font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--text) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         
         .section-subtitle {
+            text-align: center;
             font-size: 20px;
-            color: var(--text-muted);
+            opacity: 0.8;
+            margin-bottom: 80px;
             max-width: 600px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .features-grid {
@@ -415,114 +306,91 @@
         }
         
         .feature-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 24px;
             padding: 40px;
+            text-align: center;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
         
         .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
-        }
-        
-        .feature-card:hover::before {
-            opacity: 1;
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
         .feature-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
-            margin-bottom: 24px;
+            margin: 0 auto 24px;
         }
         
         .feature-title {
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 16px;
-            color: var(--text);
         }
         
         .feature-description {
-            color: var(--text-muted);
+            opacity: 0.8;
             line-height: 1.6;
         }
         
         /* Download Section */
         .download {
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
         }
         
         .download-title {
-            font-size: clamp(36px, 5vw, 48px);
+            font-size: 48px;
             font-weight: 800;
             margin-bottom: 20px;
-            color: var(--text);
         }
         
         .download-subtitle {
             font-size: 20px;
-            color: var(--text-muted);
+            opacity: 0.8;
             margin-bottom: 60px;
         }
         
         .app-stores {
             display: flex;
-            gap: 24px;
+            gap: 30px;
             justify-content: center;
+            flex-wrap: wrap;
             margin-bottom: 40px;
         }
         
         .store-btn {
-            background: var(--surface);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 16px;
-            padding: 16px 24px;
+            padding: 20px 30px;
             text-decoration: none;
-            color: var(--text);
+            color: #fff;
             display: flex;
             align-items: center;
             gap: 16px;
             transition: all 0.3s ease;
-            min-width: 200px;
+            min-width: 220px;
         }
         
         .store-btn:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         .store-icon {
-            font-size: 32px;
+            font-size: 40px;
         }
         
         .store-text {
@@ -530,66 +398,71 @@
         }
         
         .store-text-small {
-            font-size: 12px;
+            font-size: 14px;
             opacity: 0.7;
         }
         
         .store-text-large {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
         }
         
         .rating {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             justify-content: center;
-            color: var(--text-muted);
+            opacity: 0.8;
         }
         
         .stars {
             color: #FFD700;
+            font-size: 18px;
         }
         
         /* Footer */
         .footer {
             padding: 60px 0 40px;
             text-align: center;
-            border-top: 1px solid var(--glass-border);
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .footer-links {
             display: flex;
             justify-content: center;
             gap: 40px;
-            margin-bottom: 24px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
         
         .footer-link {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
         .footer-link:hover {
-            color: var(--primary-light);
+            color: #fff;
         }
         
         .copyright {
-            color: var(--text-muted);
+            opacity: 0.6;
             font-size: 14px;
         }
         
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
+            .nav-links {
                 display: none;
             }
             
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 60px;
-                text-align: center;
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .hero p {
+                font-size: 18px;
             }
             
             .hero-buttons {
@@ -597,17 +470,37 @@
                 align-items: center;
             }
             
-            .stats {
-                justify-content: center;
+            .btn {
+                width: 280px;
             }
             
-            .phone-container {
-                width: 280px;
-                height: 560px;
+            .stats {
+                gap: 40px;
+            }
+            
+            .stat-number {
+                font-size: 32px;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .phone-mockup {
+                max-width: 300px;
+            }
+            
+            .phone-screen {
+                height: 500px;
+                padding: 30px 15px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .download-title {
+                font-size: 36px;
             }
             
             .app-stores {
@@ -621,55 +514,39 @@
             }
         }
         
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--surface);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-light);
-        }
-        
-        /* Loading animations */
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-            opacity: 0;
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
             }
-        }
-        
-        .fade-in {
-            transform: translateY(20px);
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .feature-card {
+                padding: 30px 20px;
+            }
+            
+            .stats {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="gradient-bg"></div>
-    
     <header class="header">
         <div class="container">
             <nav class="nav">
                 <div class="logo">MoneyGoal+</div>
-                <div class="nav-menu">
+                <div class="nav-links">
                     <a href="#features" class="nav-link">Features</a>
                     <a href="#download" class="nav-link">Download</a>
-                    <a href="#pricing" class="nav-link">Pricing</a>
                     <a href="#support" class="nav-link">Support</a>
-                    <a href="#download" class="cta-btn">Get Started</a>
+                    <a href="#download" class="get-started-btn">Get Started</a>
                 </div>
             </nav>
         </div>
@@ -677,91 +554,76 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-content fade-in">
-                <div class="hero-text">
-                    <h1>Your Financial Dreams, Now Achievable</h1>
-                    <p>Transform your relationship with money through intelligent goal setting, automated tracking, and personalized insights that actually work.</p>
-                    
-                    <div class="hero-buttons">
-                        <a href="#download" class="btn-primary">Start Your Journey</a>
-                        <a href="#features" class="btn-secondary">See How It Works</a>
-                    </div>
-                    
-                    <div class="stats">
-                        <div class="stat">
-                            <span class="stat-number">2.5M+</span>
-                            <span class="stat-label">Goals Achieved</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">4.9★</span>
-                            <span class="stat-label">App Rating</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">$50M+</span>
-                            <span class="stat-label">Money Saved</span>
-                        </div>
-                    </div>
+            <div class="hero-content">
+                <h1>Your Financial Dreams, Now Achievable</h1>
+                <p>Transform your relationship with money through intelligent goal setting, automated tracking, and personalized insights that actually work.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">Start Your Journey</a>
+                    <a href="#features" class="btn btn-secondary">See How It Works</a>
                 </div>
                 
-                <div class="phone-mockup">
-                    <div class="floating-cards">
-                        <div class="floating-card">
-                            <div style="font-size: 20px;">💰</div>
-                            <div style="font-size: 12px; margin-top: 8px;">+$500 saved</div>
-                        </div>
-                        <div class="floating-card">
-                            <div style="font-size: 20px;">🎯</div>
-                            <div style="font-size: 12px; margin-top: 8px;">Goal reached!</div>
-                        </div>
-                        <div class="floating-card">
-                            <div style="font-size: 20px;">📊</div>
-                            <div style="font-size: 12px; margin-top: 8px;">+15% savings</div>
-                        </div>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">2.5M+</span>
+                        <span class="stat-label">Goals Achieved</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.9★</span>
+                        <span class="stat-label">App Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$50M+</span>
+                        <span class="stat-label">Money Saved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="phone-section">
+        <div class="container">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="app-header">
+                        <div class="app-title">MoneyGoal+</div>
+                        <div class="app-subtitle">Your Financial Dashboard</div>
                     </div>
                     
-                    <div class="phone-container">
-                        <div class="phone-screen">
-                            <div class="app-header">
-                                <div class="app-title">MoneyGoal+</div>
-                                <div class="app-subtitle">Your Financial Dashboard</div>
-                            </div>
-                            
-                            <div class="goal-card">
-                                <div class="goal-header">
-                                    <span class="goal-icon">🏠</span>
-                                    <span class="goal-amount">$45,000 / $60,000</span>
-                                </div>
-                                <div class="goal-title">Dream House Fund</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 75%;"></div>
-                                </div>
-                                <div class="progress-text">75% complete • 8 months left</div>
-                            </div>
-                            
-                            <div class="goal-card">
-                                <div class="goal-header">
-                                    <span class="goal-icon">🚗</span>
-                                    <span class="goal-amount">$18,500 / $25,000</span>
-                                </div>
-                                <div class="goal-title">New Car</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 74%;"></div>
-                                </div>
-                                <div class="progress-text">74% complete • On track!</div>
-                            </div>
-                            
-                            <div class="goal-card">
-                                <div class="goal-header">
-                                    <span class="goal-icon">🏖️</span>
-                                    <span class="goal-amount">$3,800 / $4,000</span>
-                                </div>
-                                <div class="goal-title">Vacation Fund</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 95%;"></div>
-                                </div>
-                                <div class="progress-text">95% complete • Almost there!</div>
-                            </div>
+                    <div class="goal-card">
+                        <div class="goal-header">
+                            <span class="goal-icon">🏠</span>
+                            <span class="goal-amount">$45,000 / $60,000</span>
                         </div>
+                        <div class="goal-title">Dream House Fund</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                        <div class="progress-text">75% complete • 8 months left</div>
+                    </div>
+                    
+                    <div class="goal-card">
+                        <div class="goal-header">
+                            <span class="goal-icon">🚗</span>
+                            <span class="goal-amount">$18,500 / $25,000</span>
+                        </div>
+                        <div class="goal-title">New Car</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 74%;"></div>
+                        </div>
+                        <div class="progress-text">74% complete • On track!</div>
+                    </div>
+                    
+                    <div class="goal-card">
+                        <div class="goal-header">
+                            <span class="goal-icon">🏖️</span>
+                            <span class="goal-amount">$3,800 / $4,000</span>
+                        </div>
+                        <div class="goal-title">Vacation Fund</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                        <div class="progress-text">95% complete • Almost there!</div>
                     </div>
                 </div>
             </div>
@@ -770,43 +632,41 @@
 
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Built for Your Success</h2>
-                <p class="section-subtitle">Every feature designed to turn your financial dreams into achievable milestones</p>
-            </div>
+            <h2 class="section-title">Built for Your Success</h2>
+            <p class="section-subtitle">Every feature designed to turn your financial dreams into achievable milestones</p>
             
             <div class="features-grid">
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🎯</div>
                     <h3 class="feature-title">Smart Goal Architecture</h3>
                     <p class="feature-description">AI-powered goal breakdown that turns big dreams into manageable daily actions. Get personalized timelines and achievement strategies.</p>
                 </div>
                 
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🧠</div>
                     <h3 class="feature-title">Behavioral Insights</h3>
                     <p class="feature-description">Understand your spending patterns with advanced analytics. Discover hidden opportunities to accelerate your progress.</p>
                 </div>
                 
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3 class="feature-title">Automated Optimization</h3>
                     <p class="feature-description">Let our algorithms find the perfect balance between your lifestyle and savings goals. Effortless financial growth.</p>
                 </div>
                 
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🔐</div>
                     <h3 class="feature-title">Bank-Grade Security</h3>
                     <p class="feature-description">Military-level encryption protects your financial data. Your privacy and security are our top priorities.</p>
                 </div>
                 
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🌐</div>
                     <h3 class="feature-title">Universal Sync</h3>
                     <p class="feature-description">Seamless experience across all your devices. Your financial journey continues wherever you are.</p>
                 </div>
                 
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🏆</div>
                     <h3 class="feature-title">Gamified Progress</h3>
                     <p class="feature-description">Stay motivated with achievements, streaks, and social challenges. Make saving money genuinely enjoyable.</p>
@@ -817,10 +677,10 @@
 
     <section class="download" id="download">
         <div class="container">
-            <h2 class="download-title fade-in">Ready to Transform Your Future?</h2>
-            <p class="download-subtitle fade-in">Join millions who've already achieved their financial dreams</p>
+            <h2 class="download-title">Ready to Transform Your Future?</h2>
+            <p class="download-subtitle">Join millions who've already achieved their financial dreams</p>
             
-            <div class="app-stores fade-in">
+            <div class="app-stores">
                 <a href="#" class="store-btn">
                     <div class="store-icon">🍎</div>
                     <div class="store-text">
@@ -837,7 +697,7 @@
                 </a>
             </div>
             
-            <div class="rating fade-in">
+            <div class="rating">
                 <span class="stars">★★★★★</span>
                 <span>4.9 rating • 150K+ reviews</span>
             </div>
@@ -864,204 +724,24 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
         });
 
         // Header background change on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(15, 15, 35, 0.95)';
+                header.style.background = 'rgba(118, 75, 162, 0.98)';
             } else {
-                header.style.background = 'rgba(15, 15, 35, 0.8)';
+                header.style.background = 'rgba(118, 75, 162, 0.95)';
             }
         });
-
-        // Animate progress bars when in view
-        const progressBars = document.querySelectorAll('.progress-fill');
-        const progressObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const width = entry.target.style.width;
-                    entry.target.style.width = '0%';
-                    setTimeout(() => {
-                        entry.target.style.width = width;
-                    }, 200);
-                }
-            });
-        }, observerOptions);
-
-        progressBars.forEach(bar => {
-            progressObserver.observe(bar);
-        });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.createElement('button');
-        mobileMenuBtn.innerHTML = '☰';
-        mobileMenuBtn.style.cssText = `
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        `;
-
-        // Add mobile menu button for smaller screens
-        if (window.innerWidth <= 768) {
-            const nav = document.querySelector('.nav');
-            nav.appendChild(mobileMenuBtn);
-            mobileMenuBtn.style.display = 'block';
-        }
-
-        // Parallax effect for floating cards
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelectorAll('.floating-card');
-            const speed = 0.5;
-
-            parallax.forEach((element, index) => {
-                const yPos = -(scrolled * speed * (index + 1) * 0.2);
-                element.style.transform = `translateY(${yPos}px) rotate(${Math.sin(scrolled * 0.01 + index) * 2}deg)`;
-            });
-        });
-
-        // Dynamic gradient background
-        let gradientAngle = 0;
-        setInterval(() => {
-            gradientAngle += 0.5;
-            const gradientBg = document.querySelector('.gradient-bg');
-            gradientBg.style.background = `
-                radial-gradient(ellipse at ${50 + Math.sin(gradientAngle * 0.02) * 20}% ${50 + Math.cos(gradientAngle * 0.03) * 20}%, rgba(139, 92, 246, 0.3) 0%, rgba(15, 15, 35, 0.9) 50%),
-                radial-gradient(ellipse at ${30 + Math.cos(gradientAngle * 0.025) * 30}% ${70 + Math.sin(gradientAngle * 0.02) * 25}%, rgba(236, 72, 153, 0.2) 0%, transparent 50%)
-            `;
-        }, 100);
-
-        // Phone screen interactions
-        const goalCards = document.querySelectorAll('.goal-card');
-        goalCards.forEach((card, index) => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'scale(1.02)';
-                card.style.background = 'rgba(255, 255, 255, 0.25)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'scale(1)';
-                card.style.background = 'rgba(255, 255, 255, 0.15)';
-            });
-        });
-
-        // Add loading states for buttons
-        document.querySelectorAll('.btn-primary, .store-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if (btn.href === '#' || btn.href.includes('#')) {
-                    return; // Don't show loading for anchor links
-                }
-                
-                const originalText = btn.innerHTML;
-                btn.innerHTML = 'Loading...';
-                btn.style.opacity = '0.7';
-                btn.style.pointerEvents = 'none';
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.opacity = '1';
-                    btn.style.pointerEvents = 'auto';
-                }, 2000);
-            });
-        });
-
-        // Add typing effect to hero title
-        const heroTitle = document.querySelector('.hero-text h1');
-        const titleText = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < titleText.length) {
-                heroTitle.textContent += titleText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        };
-        
-        // Start typing effect after page load
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter, 500);
-        });
-
-        // Add particle effect
-        const createParticle = () => {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: rgba(139, 92, 246, 0.6);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: -1;
-                left: ${Math.random() * 100}vw;
-                top: 100vh;
-                animation: particleFloat 8s linear forwards;
-            `;
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 8000);
-        };
-
-        // Add CSS for particle animation
-        const particleStyle = document.createElement('style');
-        particleStyle.textContent = `
-            @keyframes particleFloat {
-                to {
-                    transform: translateY(-110vh) translateX(${Math.random() * 200 - 100}px);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(particleStyle);
-
-        // Create particles periodically
-        setInterval(createParticle, 2000);
-
-
-
-        // Add pulse animation
-        const pulseStyle = document.createElement('style');
-        pulseStyle.textContent = `
-            @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.05); }
-                100% { transform: scale(1); }
-            }
-        `;
-        document.head.appendChild(pulseStyle);
     </script>
 </body>
 </html>
