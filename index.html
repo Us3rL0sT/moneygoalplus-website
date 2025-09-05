@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoneyGoal+ - Smart Financial Goal Tracking | Download on App Store</title>
-    <meta name="description" content="MoneyGoal+ helps you achieve your financial dreams. Track savings, set goals, and build wealth with our intelligent money management app.">
-    <meta property="og:title" content="MoneyGoal+ - Smart Financial Goal Tracking">
-    <meta property="og:description" content="Transform your financial future with MoneyGoal+. Set goals, track progress, and achieve financial freedom.">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630/9C27B0/white?text=MoneyGoal%2B">
-    <meta property="og:url" content="https://moneygoalplus.com">
+    <title>MoneyGoal+ - Достигайте финансовых целей легко</title>
     <style>
         * {
             margin: 0;
@@ -17,17 +12,71 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 50%, #4A148C 100%);
-            min-height: 100vh;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        header {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
             display: flex;
+            justify-content: space-between;
             align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 50%, #C084FC 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -39,257 +88,180 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
         }
-
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .floating-icon {
-            position: absolute;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .floating-icon:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
-        .floating-icon:nth-child(3) { top: 30%; left: 75%; animation-delay: 4s; }
-        .floating-icon:nth-child(4) { top: 80%; left: 20%; animation-delay: 1s; }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            min-height: 100vh;
-            padding: 80px 0;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero-text {
-            color: white;
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            background: linear-gradient(45deg, #ffffff, #CE93D8);
+            background: linear-gradient(45deg, #ffffff, #e0e7ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero-text .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .hero-text .description {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .app-store-btn {
-            display: inline-flex;
-            align-items: center;
-            background: #000;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .app-store-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .learn-more-btn {
-            display: inline-flex;
-            align-items: center;
-            background: transparent;
-            color: white;
-            padding: 12px 24px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .learn-more-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .phone-mockup {
-            width: 300px;
-            height: 600px;
-            background: linear-gradient(145deg, #333, #111);
-            border-radius: 40px;
-            padding: 8px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
-            animation: phoneFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes phoneFloat {
-            0%, 100% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0px); }
-            50% { transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(-10px); }
-        }
-
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #9C27B0, #7B1FA2);
-            border-radius: 32px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #BA68C8, #8E24AA);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            color: white;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .features {
-            background: #f8f9fa;
-            padding: 100px 0;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #7B1FA2;
-        }
-
-        .features-subtitle {
-            text-align: center;
+        .hero p {
             font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 60px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #8B5CF6;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .phone-mockup {
+            max-width: 300px;
+            margin: 0 auto;
+            position: relative;
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .phone-mockup img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .feature-card {
             background: white;
-            padding: 40px 30px;
+            padding: 2rem;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.2);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #9C27B0, #7B1FA2);
-            border-radius: 15px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8B5CF6, #A855F7);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: white;
-            margin: 0 auto 20px;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #333;
+            margin-bottom: 1rem;
+            color: #1e293b;
         }
 
         .feature-card p {
-            color: #666;
+            color: #64748b;
             line-height: 1.6;
         }
 
+        /* Stats Section */
         .stats {
-            background: linear-gradient(135deg, #7B1FA2, #4A148C);
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
             color: white;
             padding: 80px 0;
+            text-align: center;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: center;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .stat-item h3 {
             font-size: 3rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
         }
 
         .stat-item p {
@@ -297,266 +269,306 @@
             opacity: 0.9;
         }
 
-        .cta-section {
-            background: #fff;
-            padding: 100px 0;
+        /* Download Section */
+        .download {
+            padding: 80px 0;
+            background: white;
             text-align: center;
         }
 
-        .cta-section h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #7B1FA2;
+        .download h2 {
+            color: #1e293b;
+            margin-bottom: 2rem;
         }
 
-        .cta-section p {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
-        .footer {
-            background: #333;
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1e293b;
             color: white;
-            padding: 60px 0 30px;
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #8B5CF6;
+            transform: translateY(-2px);
+        }
+
+        .download-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: #BA68C8;
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #8B5CF6;
         }
 
         .footer-section a {
-            color: #ccc;
+            color: #94a3b8;
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
         }
 
         .footer-section a:hover {
-            color: #8b9bff;
+            color: #8B5CF6;
         }
 
         .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 30px;
-            text-align: center;
-            color: #999;
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            color: #94a3b8;
         }
 
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
+            .nav-links {
+                display: none;
             }
 
-            .hero-text h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .phone-mockup {
-                width: 250px;
-                height: 500px;
-                transform: none;
-            }
-
-            .features h2,
-            .cta-section h2 {
-                font-size: 2rem;
+            .hero p {
+                font-size: 1.1rem;
             }
 
             .cta-buttons {
-                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">MoneyGoal+</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="floating-elements">
-            <div class="floating-icon">💰</div>
-            <div class="floating-icon">🎯</div>
-            <div class="floating-icon">📊</div>
-            <div class="floating-icon">💎</div>
-        </div>
-        
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>MoneyGoal+</h1>
-                    <p class="tagline">Your Financial Dreams, Achieved</p>
-                    <p class="description">
-                        Transform your financial future with intelligent goal tracking, 
-                        smart savings strategies, and personalized insights that make 
-                        wealth building effortless and rewarding.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="https://apps.apple.com/app/moneygoal" class="app-store-btn">
-                            📱 Download on App Store
-                        </a>
-                        <a href="#features" class="learn-more-btn">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
+                <h1>Achieve Your Financial Goals</h1>
+                <p>Track, save, and reach your money goals with MoneyGoal+. The smart way to build better financial habits and secure your future.</p>
                 
-                <div class="hero-visual">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="app-icon">💰</div>
-                            <h3 style="color: white; margin-bottom: 20px;">MoneyGoal+</h3>
-                            <div style="background: rgba(255,255,255,0.2); border-radius: 10px; padding: 20px; margin: 20px; text-align: center;">
-                                <p style="color: white; font-weight: bold;">Goal Progress</p>
-                                <div style="background: rgba(255,255,255,0.3); height: 8px; border-radius: 4px; margin: 10px 0;">
-                                    <div style="background: #FFD700; height: 100%; width: 65%; border-radius: 4px;"></div>
-                                </div>
-                                <p style="color: white; font-size: 0.9rem;">$6,500 / $10,000</p>
-                            </div>
-                        </div>
+                <div class="cta-buttons">
+                    <a href="#download" class="btn btn-primary">
+                        📱 Get Started Free
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        ✨ Learn More
+                    </a>
+                </div>
+
+                <div class="phone-mockup">
+                    <div style="width: 100%; height: 400px; background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1)); border-radius: 30px; border: 8px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                        💰
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <!-- Features Section -->
+    <section class="features" id="features">
         <div class="container">
-            <h2>Powerful Features</h2>
-            <p class="features-subtitle">
-                Everything you need to take control of your finances and achieve your goals faster than ever before.
-            </p>
+            <h2 class="section-title">Why Choose MoneyGoal+?</h2>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
                     <h3>Smart Goal Setting</h3>
-                    <p>Set personalized financial goals with intelligent recommendations based on your income, expenses, and lifestyle.</p>
+                    <p>Set realistic financial goals with our AI-powered recommendations. Track progress and stay motivated with visual insights.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Progress Tracking</h3>
-                    <p>Visual progress tracking with detailed analytics and milestone celebrations to keep you motivated.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>AI Insights</h3>
-                    <p>Get personalized savings strategies and spending insights powered by advanced AI algorithms.</p>
+                    <div class="feature-icon">📊</div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Get detailed insights into your spending patterns and savings progress with beautiful charts and reports.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <h3>Bank-Level Security</h3>
-                    <p>Your financial data is protected with enterprise-grade encryption and security protocols.</p>
+                    <p>Your financial data is protected with 256-bit encryption and biometric authentication options.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Smart Notifications</h3>
+                    <p>Stay on track with intelligent reminders and milestone celebrations that keep you motivated.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Multi-Account Sync</h3>
+                    <p>Connect all your bank accounts and credit cards for a complete financial overview in one place.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
-                    <h3>Beautiful Interface</h3>
-                    <p>Intuitive design that makes financial planning enjoyable and stress-free for everyone.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Achievement System</h3>
-                    <p>Unlock badges and rewards as you hit milestones and build healthy financial habits.</p>
+                    <h3>Cross-Platform</h3>
+                    <p>Access your goals anywhere with seamless sync across iOS, Android, and web platforms.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="stats">
         <div class="container">
+            <h2 class="section-title">Trusted by Millions</h2>
+            
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>50K+</h3>
-                    <p>Happy Users</p>
+                    <h3>2M+</h3>
+                    <p>Active Users</p>
                 </div>
                 <div class="stat-item">
-                    <h3>$5M+</h3>
+                    <h3>$1.5B</h3>
                     <p>Goals Achieved</p>
                 </div>
                 <div class="stat-item">
-                    <h3>4.8★</h3>
+                    <h3>4.9★</h3>
                     <p>App Store Rating</p>
                 </div>
                 <div class="stat-item">
-                    <h3>89%</h3>
-                    <p>Success Rate</p>
+                    <h3>150+</h3>
+                    <p>Countries</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
+    <!-- Download Section -->
+    <section class="download" id="download">
         <div class="container">
-            <h2>Start Your Financial Journey Today</h2>
-            <p>
-                Join thousands of users who have already transformed their financial lives with MoneyGoal+. 
-                Download now and take the first step towards financial freedom.
-            </p>
-            <div class="cta-buttons">
-                <a href="https://apps.apple.com/app/moneygoal" class="app-store-btn" style="color: white;">
-                    📱 Download on App Store
+            <h2 class="section-title">Start Your Financial Journey Today</h2>
+            <p style="font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto;">Join millions of users who have already transformed their financial future with MoneyGoal+</p>
+            
+            <div class="download-buttons">
+                <a href="#" class="download-btn">
+                    <span>📱</span>
+                    <div>
+                        <div style="font-size: 0.8rem;">Download for</div>
+                        <div>iOS</div>
+                    </div>
+                </a>
+                
+                <a href="#" class="download-btn">
+                    <span>🤖</span>
+                    <div>
+                        <div style="font-size: 0.8rem;">Download for</div>
+                        <div>Android</div>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>MoneyGoal+</h3>
-                    <p style="color: #ccc;">Your trusted partner in achieving financial success and building wealth for the future.</p>
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Security</a>
+                    <a href="#">Updates</a>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Product</h3>
-                    <a href="#features">Features</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#updates">What's New</a>
-                    <a href="https://support.moneygoalplus.com">Support</a>
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Community</a>
+                    <a href="#">Tutorials</a>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Company</h3>
-                    <a href="#about">About Us</a>
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                    <a href="mailto:mr.goldman.co@gmail.com">Contact</a>
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                    <a href="#">Blog</a>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Connect</h3>
-                    <a href="mailto:mr.goldman.co@gmail.com">mr.goldman.co@gmail.com</a>
-                    <a href="#twitter">Twitter</a>
-                    <a href="#instagram">Instagram</a>
-                    <a href="#linkedin">LinkedIn</a>
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Licenses</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 MoneyGoal+. All rights reserved. Made with ❤️ for your financial success.</p>
+                <p>&copy; 2025 MoneyGoal+. All rights reserved. Your financial success, our mission.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -570,28 +582,70 @@
             });
         });
 
-        // Add scroll animations
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(139, 92, 246, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%)';
+            }
+        });
+
+        // Animate stats on scroll
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.5,
+            rootMargin: '0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    const statNumbers = entry.target.querySelectorAll('.stat-item h3');
+                    statNumbers.forEach((stat, index) => {
+                        const finalValue = stat.textContent;
+                        stat.textContent = '0';
+                        
+                        setTimeout(() => {
+                            animateValue(stat, 0, parseInt(finalValue.replace(/\D/g, '')), 2000, finalValue);
+                        }, index * 200);
+                    });
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe feature cards
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        function animateValue(element, start, end, duration, suffix) {
+            const startTimestamp = performance.now();
+            
+            const step = (timestamp) => {
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const currentValue = Math.floor(progress * (end - start) + start);
+                
+                if (suffix.includes('M')) {
+                    element.textContent = (currentValue / 1000000).toFixed(1) + 'M+';
+                } else if (suffix.includes('B')) {
+                    element.textContent = ' + (currentValue / 1000).toFixed(1) + 'B';
+                } else if (suffix.includes('★')) {
+                    element.textContent = (currentValue / 10).toFixed(1) + '★';
+                } else if (suffix.includes('+')) {
+                    element.textContent = currentValue + '+';
+                } else {
+                    element.textContent = currentValue;
+                }
+                
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            };
+            
+            requestAnimationFrame(step);
+        }
     </script>
 </body>
 </html>
